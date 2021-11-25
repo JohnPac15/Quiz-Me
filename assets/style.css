@@ -1,0 +1,108 @@
+
+* {
+    margin: 0px;
+    padding: 0px;
+}
+
+header h1 {
+    font-size: 50px;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding: 2%;
+}
+
+#timebox {
+    display: flex;
+    padding: 2%;
+    border: 3px solid black;
+    font-size: 20px;
+    flex-direction: column;
+    align-content: center;
+    align-items: center;
+}
+
+#scorebox {
+    padding: 2%;
+    border: 3px solid black;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.box {
+    border: 5px solid black;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    align-content: center;
+    flex-wrap: wrap;
+    margin: 2%;
+    padding: 1%;
+    
+}
+
+main button {
+    padding: 1%;
+    color: red;
+}
+
+.box h2 {
+    width: max-content;
+    padding: 5%;
+}
+
+.main-game {
+    width: -webkit-fill-available;
+    border: 5px solid red;
+}
+
+/* .hide {
+    display: none;
+} */
+
+
+#game {
+    border: 5px solid blue;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1%;
+    margin: 2%;
+}
+
+.choice-box {
+    width: 100%;
+    display: flex;
+    justify-content: center
+
+}
+
+#choices {
+    width: 95px;
+    padding: 7%;
+    font-size: 18px;
+}
+
+.btns{
+    display: flex;
+    justify-content: center;
+}
+
+#button-box {
+    padding: 10% 15%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    align-content: center;
+}
+
+.inside-btn {
+    padding: 10%;
+    font-size: 40px;
+}
+
+.answer-btn {
+    display: grid;
+}

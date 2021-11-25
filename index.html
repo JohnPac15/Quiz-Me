@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz</title>
+    <link rel="stylesheet" href="./assets/style.css">
+</head>
+<body>
+    <header>
+        <h1>
+            Quiz Me
+        </h1>
+    </header>
+            
+
+    <main>
+        <div class="box">
+            <div id="timebox"> 
+                <div id="scorebox">
+                    <h1>Score</h1>
+                    <h2 id="score"></h2>
+                </div>
+                <h1>Timer</h1>
+                <h2 id="showtime"></h2>
+                <div id="start" >
+                    <button id="button-one" href="/" class="button1 hide" value="1">Start Here!</button>
+                </div>
+            </div>
+            
+            <h2 id="gameover"></h2>
+            <div class="main-game">
+                <div id="game">
+                    <div class="question-box">
+                        <h2 id="question"></h2>
+                    </div>
+                    <div class="choice-box">
+                        <p id="choices" >Choices</p>
+                    </div>
+                    <div>
+                        <p id="response">User Response</p>
+                    </div>
+                    <div id="buttons" class="btns">
+                        <div id="button-box">
+                            <p id="choice-letter"></p>
+                            <button type="submit" class="inside-btn" id="choice-one" value="a">A</button>
+                        </div>
+                        <div id="button-box">
+                            <p id="choice-letter"></p>
+                            <button type="submit" class="inside-btn" id="choice-two" value="b">B</button>
+                        </div>
+                        <div id="button-box">
+                            <p id="choice-letter"></p>
+                            <button type="submit" class="inside-btn" id="choice-three" value="c">C</button>
+                        </div>
+
+                    </div>
+                </div>
+        
+            </div>
+
+        </div>
+    </main>
+    <script src="./assets/script.js"></script>
+</body>
+</html>
