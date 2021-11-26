@@ -64,19 +64,10 @@ const myQuestions = [
         choices.innerHTML =displayChoice
     }
     
-    // displayScore = function() {
-    //     var stringScore = JSON.stringify(score)
-    //     console.log(stringScore)
-    //     scoreboard.innerHTML = stringScore;
-    // }
-    
     function endGame() {
         let displayGameOver = gameOver.innerHTML = " GAME OVER! ";
-        let questionEndgame = questions.innerHTML = "GMAE OVER!";
+        let questionEndgame = questions.innerHTML = "GAME OVER!";
         let choiceEndgame = choices.innerHTML = "GAME OVER!";
-    }
-    
-    function addPoints() {
     }
     
     function timer(event) {
@@ -107,8 +98,11 @@ const myQuestions = [
             buttons.addEventListener("click", function(event) {
                 // console.log(event.target.value);
                 var answer = myQuestions[currentQuestionIndex].correctAnswer; 
+
+                let highscoreEl = document.createElement("form") 
+                let formEl = document.createElement("input")
+
                 
-                let highscoreEl = document.createElement("form")             
                 
                 
                 
@@ -142,8 +136,11 @@ const myQuestions = [
                     console.log(finalScore);
                     scoreboard.innerHTML = finalScore;
                     localStorage.setItem("UserScore", JSON.stringify(finalScore));
-                }
 
+                    window.location.replace(google.com)
+                    
+                }
+                
             })
         }         
     }

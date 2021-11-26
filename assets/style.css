@@ -3,6 +3,9 @@
     margin: 0px;
     padding: 0px;
 }
+header {
+    display: flex;
+}
 
 header h1 {
     font-size: 50px;
@@ -58,9 +61,6 @@ main button {
     border: 5px solid red;
 }
 
-/* .hide {
-    display: none;
-} */
 
 
 #game {
@@ -80,7 +80,7 @@ main button {
 }
 
 #choices {
-    width: 95px;
+    
     padding: 7%;
     font-size: 18px;
 }
