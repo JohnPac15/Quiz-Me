@@ -64,11 +64,11 @@ const myQuestions = [
         choices.innerHTML =displayChoice
     }
     
-    displayScore = function() {
-        var stringScore = JSON.stringify(score)
-        console.log(stringScore)
-        scoreboard.innerHTML = stringScore;
-    }
+    // displayScore = function() {
+    //     var stringScore = JSON.stringify(score)
+    //     console.log(stringScore)
+    //     scoreboard.innerHTML = stringScore;
+    // }
     
     function endGame() {
         let displayGameOver = gameOver.innerHTML = " GAME OVER! ";
@@ -96,9 +96,6 @@ const myQuestions = [
                 
                 if(timeLeft < 0) { 
                     clearInterval(countdown);
-                    // displayGameOver;
-                    // choiceEndgame;
-                    // questionEndgame;
                     endGame();
                     
                     
@@ -106,10 +103,12 @@ const myQuestions = [
             },1000)
             
             displayQuestion();
-            displayScore();
+            // displayScore();
             buttons.addEventListener("click", function(event) {
                 // console.log(event.target.value);
-                var answer = myQuestions[currentQuestionIndex].correctAnswer;              
+                var answer = myQuestions[currentQuestionIndex].correctAnswer; 
+                
+                let highscoreEl = document.createElement("form")             
                 
                 
                 
@@ -134,12 +133,17 @@ const myQuestions = [
                     
                     
                 }
-                else{
-                    // displayGameOver;
-                    // choiceEndgame;
-                    // questionEndgame;
-                    
+                else{(timeLeft < 0)
+                    clearInterval(countdown);
+                    endGame();
+                    let finalScore = score * timeLeft
+                    console.log(score);
+                    console.log(timeLeft)
+                    console.log(finalScore);
+                    scoreboard.innerHTML = finalScore;
+                    localStorage.setItem("UserScore", JSON.stringify(finalScore));
                 }
+
             })
         }         
     }
