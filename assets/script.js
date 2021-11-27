@@ -66,15 +66,17 @@ const myQuestions = [
     }
     
     function endGame() {
-        let displayGameOver = gameOver.innerHTML = " GAME OVER! ";
+        let displayGameOver = gameOver.innerHTML = "GAME OVER!";
         let questionEndgame = questions.innerHTML = "GAME OVER!";
         let choiceEndgame = choices.innerHTML = "GAME OVER!";
         displayOutcome.innerHTML = ""
 
-        let highscoreBtn = document.createElement("button");
+        let highscoreBtn = document.createElement("a");
         highscoreBtn.textContent = "Checkout the highscores!!!";
         highscoreBtn.className = "highscorebtn";
         highscoreDiv.appendChild(highscoreBtn);
+        highscoreBtn.setAttribute("href","./HighScore.html");
+
 
     }
     
@@ -144,8 +146,9 @@ const myQuestions = [
                     console.log(finalScore);
                     scoreboard.innerHTML = finalScore;
                     localStorage.setItem("UserScore", JSON.stringify(finalScore));
+                    // getHighscores();
 
-                    window.location.replace()
+                    
                     
                 }
                 
@@ -153,8 +156,23 @@ const myQuestions = [
         }         
     }
     
-    
-    
+    // function getHighscores() {
+    //     var getScores = localStorage.getItem("UserScore")
+    //     var displayScore = document.getElementById('scorePage');
+    //     console.log(getScores)
+    //     displayScore.innerHTML = getScores;
+    //     saveUserName();
+
+    // }
+
+    // function saveUserName() {
+    //     var userName = document.getElementById('inputname').value
+    //     console.log(userName);
+    // }
+
+
+
+    // getHighscores();
     // localStorage.setItem("Questions", JSON.stringify(myQuestions));
     
     // var questionArray = localStorage.getItem("Questions")

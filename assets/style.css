@@ -4,6 +4,7 @@
     padding: 0px;
 }
 header {
+    justify-content: center;
     display: flex;
 }
 
@@ -106,6 +107,28 @@ main button {
 .answer-btn {
     display: grid;
 }
+
+.header {
+    columns: red;
+}
 .list {
+   border: 3px solid black;
+}
+
+.user-name{
+    padding: 2% 0%;
     display: flex;
+    border: 3px solid black;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.user-score {
+    padding: 2% 0%;
+    display: flex;
+    border: 3px solid black;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
