@@ -7,6 +7,7 @@ var scoreboard = document.getElementById('score');
 // var choices = Array.from(document.querySelectorAll("#chocies-text"));
 // var choice = document.getElementById('choice-text')
 var choices = document.getElementById('choices')
+var highscoreDiv = document.getElementById('highscorebtn')
 var displayOutcome = document.getElementById("response")
 
 var startBtn = document.getElementById("button-one")
@@ -68,6 +69,13 @@ const myQuestions = [
         let displayGameOver = gameOver.innerHTML = " GAME OVER! ";
         let questionEndgame = questions.innerHTML = "GAME OVER!";
         let choiceEndgame = choices.innerHTML = "GAME OVER!";
+        displayOutcome.innerHTML = ""
+
+        let highscoreBtn = document.createElement("button");
+        highscoreBtn.textContent = "Checkout the highscores!!!";
+        highscoreBtn.className = "highscorebtn";
+        highscoreDiv.appendChild(highscoreBtn);
+
     }
     
     function timer(event) {
@@ -137,7 +145,7 @@ const myQuestions = [
                     scoreboard.innerHTML = finalScore;
                     localStorage.setItem("UserScore", JSON.stringify(finalScore));
 
-                    window.location.replace(google.com)
+                    window.location.replace()
                     
                 }
                 
@@ -147,9 +155,9 @@ const myQuestions = [
     
     
     
-    localStorage.setItem("Questions", JSON.stringify(myQuestions));
+    // localStorage.setItem("Questions", JSON.stringify(myQuestions));
     
-    var questionArray = localStorage.getItem("Questions")
+    // var questionArray = localStorage.getItem("Questions")
     
     document.getElementById("button-one").addEventListener("click", timer);
     

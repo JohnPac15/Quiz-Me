@@ -106,3 +106,6 @@ main button {
 .answer-btn {
     display: grid;
 }
+.list {
+    display: flex;
+}
