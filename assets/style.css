@@ -143,3 +143,11 @@ main button {
 .highscorename {
     display: none;
 }
+
+.leaderboard {
+    display: flex;
+    flex-direction: row;
+    align-content: center;
+    align-items: center;
+    justify-content: center;
+}

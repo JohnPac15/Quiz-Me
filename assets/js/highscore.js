@@ -1,58 +1,19 @@
 var displayName = document.getElementById('usernamepage')
 var displayScore = document.getElementById('scorePage');
+var highBtn = document.getElementById('high-btn')
 
-getUserInfo = JSON.parse(localStorage.getItem("userinfo"));
+getUserInfo = JSON.parse(localStorage.getItem("userinfo")) || [];
 console.log(getUserInfo);
 
 displayName.innerHTML = getUserInfo.name
 displayScore.innerHTML = getUserInfo.score
 
+leaderBoard = []
+leaderBoard.push()
+localStorage.setItem(getUserInfo, stringify(leaderBoard))
+// UserScore.push(leaderBoard);
+
+// window.localStorage.setItem("UserScore", JSON.stringify(UserScore))
 
 
-
-
-
-// var TopScores = JSON.parse(localStorage.getItem("UserScore"));
-
-// var getPlayerName = function() {
-//     var name = "";
-  
-//     while (name === "" || name === null) {
-//       name = prompt("Input your name to save your highscore");
-//     }
-//     console.log(name);
-//     return name;
-//   };
-// function getHighscores() {
-//     var getScores = localStorage.getItem("UserScore")
-//     var displayScore = document.getElementById('scorePage');
-//     console.log(getScores)
-//     displayScore.innerHTML = getScores;
-//     // saveUserName();
-
-// }
-
-
-// userInfo = {
-//     name: getPlayerName(),
-//     score: getHighscores(),
-// }
-
-// TopScores.push(userInfo)
-
-// TopScores.sort( (a, b) => {
-//   return b.TopScores - a.TopScores;
-// })
-
-// console.log(TopScores)
-
-
-
-// localStorage.setItem("userinfo", JSON.stringify(userInfo))
-// console.log(userInfo)
-
-
-
-
-
-// getHighscores();
+localStorage.setItem("leaderboard", JSON.stringify(getUserInfo));

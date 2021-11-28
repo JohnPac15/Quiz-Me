@@ -1,5 +1,6 @@
 
 
+
 var showTime = document.getElementById('showtime');
 var gameOver = document.getElementById('gameover');
 var questions = document.getElementById('question');
@@ -27,6 +28,9 @@ var questionsCounter = 0
 
 var timeLeft = 10;
 let score = 0
+
+myArray = JSON.parse(localStorage.getItem("userinfo"));
+// var newArray = JSON.parse(localStorage.getItem("userinfo"));
 
 
 function getHighscores() {
@@ -154,7 +158,7 @@ const myQuestions = [
                 else{(timeLeft < 0)
                     clearInterval(countdown);
                     endGame();
-                    let finalScore = score * timeLeft
+                    let finalScore = score * timeLeft;
                     console.log(score);
                     console.log(timeLeft)
                     console.log(finalScore);
@@ -162,23 +166,44 @@ const myQuestions = [
 
                     subBtn.classList.remove("highscorename")
                     highScoreName.classList.remove("highscorename")
-
                     subBtn.onclick = function(){
+                        
                         subBtn.classList.add("highscorename")
                         highScoreName.classList.add("highscorename")
 
                         console.log(highScoreName.value)
                         playerName = highScoreName.value
-    
-                        userInfo = {
+                        
+                        var userInfo = 
+                            {
                             name: playerName,
                             score: finalScore,
-                        
                         };
+                        // console.log(myArray.length, "Yo");
+                        // if local storage empty, then save to local storage
+                        if(myArray == null) {
+                            console.log(myArray)
+                            myArray = []
+                            myArray.push(userInfo)
+                            localStorage.setItem("userinfo", JSON.stringify(myArray || []))
+                        }else {
+                            myArray.push(userInfo)
+                            localStorage.setItem("userinfo", JSON.stringify(myArray));
+
+                        }
+
+                        // else add to local storage 
+
+
+
+                        localStorage.setItem("UserScore", JSON.stringify(finalScore || 0));
+
+                        // UserScore.push(userInfo)
+                        // // window.localStorage.setItem("UserScore", JSON.stringify(UserScore))
     
-                        localStorage.setItem("userinfo", JSON.stringify(userInfo));
-                        console.log(userInfo);
-                        localStorage.setItem("UserScore", JSON.stringify(finalScore));
+
+                    
+                        console.log(myArray);
                     }
 
                     
