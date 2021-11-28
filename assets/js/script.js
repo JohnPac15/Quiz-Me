@@ -9,6 +9,8 @@ var scoreboard = document.getElementById('score');
 var choices = document.getElementById('choices')
 var highscoreDiv = document.getElementById('highscorebtn')
 var displayOutcome = document.getElementById("response")
+var highScoreName = document.querySelector(".highscorename")
+var subBtn = document.getElementById("sub-btn")
 
 var startBtn = document.getElementById("button-one")
 var hideBtn = document.querySelector(".hide")
@@ -25,6 +27,18 @@ var questionsCounter = 0
 
 var timeLeft = 10;
 let score = 0
+
+
+function getHighscores() {
+    var getScores = localStorage.getItem("UserScore")
+    var displayScore = document.getElementById('scorePage');
+    console.log(getScores)
+    // displayScore.innerHTML = getScores;
+    // saveUserName();
+
+}
+
+
 
 
 
@@ -145,7 +159,39 @@ const myQuestions = [
                     console.log(timeLeft)
                     console.log(finalScore);
                     scoreboard.innerHTML = finalScore;
-                    localStorage.setItem("UserScore", JSON.stringify(finalScore));
+
+                    subBtn.classList.remove("highscorename")
+                    highScoreName.classList.remove("highscorename")
+
+                    subBtn.onclick = function(){
+                        subBtn.classList.add("highscorename")
+                        highScoreName.classList.add("highscorename")
+
+                        console.log(highScoreName.value)
+                        playerName = highScoreName.value
+    
+                        userInfo = {
+                            name: playerName,
+                            score: finalScore,
+                        
+                        };
+    
+                        localStorage.setItem("userinfo", JSON.stringify(userInfo));
+                        console.log(userInfo);
+                        localStorage.setItem("UserScore", JSON.stringify(finalScore));
+                    }
+
+                    
+                    
+                    // window.location.href = "HighScore.html";
+                    
+                    
+                    // displayName.innerHTML = userInfo.name
+
+                    
+
+
+
                     // getHighscores();
 
                     
@@ -155,6 +201,8 @@ const myQuestions = [
             })
         }         
     }
+
+    
     
     // function getHighscores() {
     //     var getScores = localStorage.getItem("UserScore")

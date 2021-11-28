@@ -108,6 +108,13 @@ main button {
     display: grid;
 }
 
+.highscorebtn {
+    border: 3px solid black;
+    text-decoration: none;
+    border: 3px outset;
+    font-size: 45px;
+}
+
 .header {
     columns: red;
 }
@@ -131,4 +138,8 @@ main button {
     flex-direction: column;
     align-items: center;
     justify-content: center;
+}
+
+.highscorename {
+    display: none;
 }
