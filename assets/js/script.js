@@ -211,10 +211,10 @@ const myQuestions = [
                     scoreboard.innerHTML = finalScore;
 
                     
-                    aTag.classList.remove("highscorename")
                     subBtn.classList.remove("highscorename")
                     highScoreName.classList.remove("highscorename")
                     subBtn.onclick = function(){
+                        aTag.classList.remove("highscorename")
                         
                         subBtn.classList.add("highscorename")
                         highScoreName.classList.add("highscorename")
