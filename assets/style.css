@@ -50,6 +50,7 @@ header h1 {
 }
 
 main button {
+    font-size: 25px;
     padding: 1%;
     color: red;
 }
