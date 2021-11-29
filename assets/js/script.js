@@ -17,6 +17,7 @@ var highscoreDiv = document.getElementById('highscorebtn')
 var displayOutcome = document.getElementById("response")
 var highScoreName = document.querySelector(".highscorename")
 var subBtn = document.getElementById("sub-btn")
+var aTag = document.getElementById("aTag")
 
 var startBtn = document.getElementById("button-one")
 var hideBtn = document.querySelector(".hide")
@@ -210,6 +211,7 @@ const myQuestions = [
                     scoreboard.innerHTML = finalScore;
 
                     
+                    aTag.classList.remove("highscorename")
                     subBtn.classList.remove("highscorename")
                     highScoreName.classList.remove("highscorename")
                     subBtn.onclick = function(){
@@ -239,12 +241,12 @@ const myQuestions = [
                         else {
                             myArray.push(userInfo)
                             localStorage.setItem("userinfo", JSON.stringify(myArray));
-                            window.location.href = "HighScore.html";
+                            // window.location.href = "HighScore.html";
                             
                         }
 
                         localStorage.setItem("UserScore", JSON.stringify(finalScore || 0));
-                         console.log(myArray);
+                        //  console.log(myArray);
                     }
 
                     
