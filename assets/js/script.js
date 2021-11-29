@@ -8,6 +8,11 @@ var scoreboard = document.getElementById('score');
 // var choices = Array.from(document.querySelectorAll("#chocies-text"));
 // var choice = document.getElementById('choice-text')
 var choices = document.getElementById('choices')
+var ABC = document.getElementById('ABC')
+var A = document.getElementById('A')
+var B = document.getElementById('B')
+var C = document.getElementById('C')
+
 var highscoreDiv = document.getElementById('highscorebtn')
 var displayOutcome = document.getElementById("response")
 var highScoreName = document.querySelector(".highscorename")
@@ -15,6 +20,8 @@ var subBtn = document.getElementById("sub-btn")
 
 var startBtn = document.getElementById("button-one")
 var hideBtn = document.querySelector(".hide")
+
+var ChoiceBox = document.querySelector(".hideBullets")
 
 var buttons = document.getElementById('buttons')
 var btnA = document.getElementById('choice-one')
@@ -33,6 +40,7 @@ myArray = JSON.parse(localStorage.getItem("userinfo"));
 // var newArray = JSON.parse(localStorage.getItem("userinfo"));
 
 
+
 function getHighscores() {
     var getScores = localStorage.getItem("UserScore")
     var displayScore = document.getElementById('scorePage');
@@ -47,53 +55,98 @@ function getHighscores() {
 
 
 const myQuestions = [
+   
     {
-        id:"1",
-        Question: "Who is Stella?",    
-        Answers:"'A:   My Dog'   'B:   My Cat'   'C:   My Daughter' ",
-        correctAnswer: "c"
-    },
-    {
-        id:"2",
-        Question: "Who is Bison?",
-        Answers:"A:   My Cat?   B: My Daughter?   C: My Dog",
-        correctAnswer: "c"
-    },
-    {
-        id:"3",
-        Question: "Who is Monica?",
-        Answers: " A: My Wife?  B: My Dog?  C: My Cat?",
+        Question: "Who is Monica? ",
+        Answers: {
+            A: "A = My Wife? ",
+            B: " B = My Cat? ",
+            C: " C = My Dog? "
+        },
         correctAnswer: "a"
     },
-    // {
-        //     Question: "2+2=?",
-        //     Answers: "2", "3","4",
-        // }
-];
-    
-    
-    
-    var currentQuestionIndex = 0
-    displayQuestion= function () {
-        //This varible grabs question choices from the array
-        var displayChoice = myQuestions[currentQuestionIndex].Answers
-        //This varible grabs the questions from the array
-        var displayQ = myQuestions[currentQuestionIndex].Question
-        questions.innerHTML = displayQ
-        choices.innerHTML =displayChoice
+    {
+        Question: "2 + 2 = ?",
+        Answers: {
+            A: "A = 3",
+            B: "B = 4",
+            C:"C = -2"
+        },
+        correctAnswer: "b"
+    },
+    {
+        Question: "What days are mandatory class ?",
+        Answers: {
+            A: " A = Sunday and Wednsday",
+            B: "B = Friday and Saturday",
+            C:"C = Tuesday and Thursday"
+        },
+        correctAnswer: "c"
+    },
+    {
+        Question: "What team dose Max Verstappen drive for ?",
+        Answers: {
+            A: "A = Mercedes",
+            B: "B = Redbull",
+            C:"C = Alpine"
+        },
+        correctAnswer: "b"
+    },
+    {
+        Question: "9 * 9 = ?",
+        Answers: {
+            A: "A = 18",
+            B: "B = 36",
+            C:"C = 81"
+        },
+        correctAnswer: "c"
+    },
+    {
+        Question: "How many seconds did the Quiz timer give you at the start ?",
+        Answers: {
+            A: "A = 11 Seconds",
+            B: "B = 10 Seconds",
+            C:"C = 15 Seconds"
+        },
+        correctAnswer: "b"
     }
+
+];
+ console.log(myQuestions[0].Answers.A)
+    currentQuestionIndex = 0
+    questionDisplay = function() {
+        arrayQuestion = myQuestions[currentQuestionIndex].Question
+        questionA = myQuestions[currentQuestionIndex].Answers.A
+        questionB = myQuestions[currentQuestionIndex].Answers.B
+        questionC = myQuestions[currentQuestionIndex].Answers.C
+
+        
+
+        questions.innerHTML = arrayQuestion
+        A.innerHTML = questionA
+        B.innerHTML = questionB
+        C.innerHTML = questionC
+
+
+
+        console.log(myQuestions[currentQuestionIndex].Question, myQuestions[currentQuestionIndex].Answers.A, myQuestions[currentQuestionIndex].Answers.B, myQuestions[currentQuestionIndex].Answers.C)
     
+}
     function endGame() {
-        let displayGameOver = gameOver.innerHTML = "GAME OVER!";
-        let questionEndgame = questions.innerHTML = "GAME OVER!";
-        let choiceEndgame = choices.innerHTML = "GAME OVER!";
+        gameOver.innerHTML = "GAME OVER!";
+        questions.innerHTML = "Enter your name to save your high score";
+        choices.innerHTML = "GAME O";
+        A.innerHTML = choices.innerHTML = "";
+        B.innerHTML = choices.innerHTML = "";
+        C.innerHTML = choices.innerHTML = "";
+        
         displayOutcome.innerHTML = ""
 
-        let highscoreBtn = document.createElement("a");
-        highscoreBtn.textContent = "Checkout the highscores!!!";
-        highscoreBtn.className = "highscorebtn";
-        highscoreDiv.appendChild(highscoreBtn);
-        highscoreBtn.setAttribute("href","./HighScore.html");
+        // let highscoreBtn = document.createElement("a");
+        // highscoreBtn.textContent = "Checkout the highscores!!!";
+        // highscoreBtn.className = "highscorebtn";
+        // highscoreDiv.appendChild(highscoreBtn);
+        // highscoreBtn.setAttribute("href","./HighScore.html");
 
 
     }
@@ -121,19 +174,11 @@ const myQuestions = [
                 };
             },1000)
             
-            displayQuestion();
-            // displayScore();
+            questionDisplay();
+            
             buttons.addEventListener("click", function(event) {
                 // console.log(event.target.value);
                 var answer = myQuestions[currentQuestionIndex].correctAnswer; 
-
-                let highscoreEl = document.createElement("form") 
-                let formEl = document.createElement("input")
-
-                
-                
-                
-                
                 
                 if(answer === event.target.value){
                     displayOutcome.innerHTML = "CORRECT!"
@@ -151,7 +196,7 @@ const myQuestions = [
                 
                 if(currentQuestionIndex < myQuestions.length - 1){
                     currentQuestionIndex++
-                    displayQuestion();
+                    questionDisplay();
                     
                     
                 }
@@ -164,6 +209,7 @@ const myQuestions = [
                     console.log(finalScore);
                     scoreboard.innerHTML = finalScore;
 
+                    
                     subBtn.classList.remove("highscorename")
                     highScoreName.classList.remove("highscorename")
                     subBtn.onclick = function(){
@@ -186,38 +232,20 @@ const myQuestions = [
                             myArray = []
                             myArray.push(userInfo)
                             localStorage.setItem("userinfo", JSON.stringify(myArray || []))
-                        }else {
+                            window.location.href = "HighScore.html";
+                        }
+                            
+                        // else add to local storage 
+                        else {
                             myArray.push(userInfo)
                             localStorage.setItem("userinfo", JSON.stringify(myArray));
-
+                            window.location.href = "HighScore.html";
+                            
                         }
 
-                        // else add to local storage 
-
-
-
                         localStorage.setItem("UserScore", JSON.stringify(finalScore || 0));
-
-                        // UserScore.push(userInfo)
-                        // // window.localStorage.setItem("UserScore", JSON.stringify(UserScore))
-    
-
-                    
-                        console.log(myArray);
+                         console.log(myArray);
                     }
-
-                    
-                    
-                    // window.location.href = "HighScore.html";
-                    
-                    
-                    // displayName.innerHTML = userInfo.name
-
-                    
-
-
-
-                    // getHighscores();
 
                     
                     
@@ -226,30 +254,6 @@ const myQuestions = [
             })
         }         
     }
-
+document.getElementById("button-one").addEventListener("click", timer);
     
     
-    // function getHighscores() {
-    //     var getScores = localStorage.getItem("UserScore")
-    //     var displayScore = document.getElementById('scorePage');
-    //     console.log(getScores)
-    //     displayScore.innerHTML = getScores;
-    //     saveUserName();
-
-    // }
-
-    // function saveUserName() {
-    //     var userName = document.getElementById('inputname').value
-    //     console.log(userName);
-    // }
-
-
-
-    // getHighscores();
-    // localStorage.setItem("Questions", JSON.stringify(myQuestions));
-    
-    // var questionArray = localStorage.getItem("Questions")
-    
-    document.getElementById("button-one").addEventListener("click", timer);
-    
-    // document.getElementById("button-one"),addEventListener("click", timer)
